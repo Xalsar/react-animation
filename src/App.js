@@ -40,7 +40,14 @@ class App extends Component {
         {/* <Transition in={this.state.showBlock} timeout={1000}>
           {state => <p>{state}</p>}
         </Transition> */}
-        <Modal show={this.state.modalIsOpen} closed={this.closeModal} />
+        <Transition
+          mountOnEnter
+          unmountOnExit
+          in={this.state.modalIsOpen}
+          timeout={300}
+        >
+          {state => <Modal show={state} closed={this.closeModal} />}
+        </Transition>
         <Backdrop show={this.state.modalIsOpen} />
         <button className="Button" onClick={this.showModal}>Open Modal</button>
         <h3>Animating Lists</h3>
