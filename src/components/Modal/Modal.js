@@ -21,12 +21,19 @@ const modal = (props) => {
             onExit={() => console.log('onExit')}
             onExiting={() => console.log('onExiting')}
             onExited={() => console.log('onExited')}
-            classNames="fade-slide"
+            classNames={{
+                enter: '',
+                enterActive: 'ModalOpen',
+                exit: '',
+                exitActive: 'ModalClosed'
+                // appear:
+                // appearActive:
+            }}
         >
             {state => <div className="Modal">
-                    <h1>A Modal</h1>
-                    <button className="Button" onClick={props.closed}>Dismiss</button>
-                </div>
+                <h1>A Modal</h1>
+                <button className="Button" onClick={props.closed}>Dismiss</button>
+            </div>
             }
         </CSSTransition>
     )
